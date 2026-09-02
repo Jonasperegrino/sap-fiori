@@ -7,39 +7,60 @@
     <link rel="icon" type="image/svg+xml" href="./webapp/img/logo.svg" />
     <title>SAP Fiori PoC</title>
     <script>
-      // Fallback for fresh clones without a vendored runtime: pinned CDN version.
-      // Run `make vendor-ui5` to serve everything locally (offline demos).
-      function ui5CdnFallback() {
-        document.write(
-          '<script src="https://sdk.openui5.org/1.151.0/resources/sap-ui-core.js"\n' +
-            '  data-sap-ui-theme="sap_fiori_3"\n' +
-            '  data-sap-ui-resourceroots=\'{"sap.fiori.poc": "./webapp"}\'\n' +
-            '  data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"\n' +
-            '  data-sap-ui-compatversion="edge"\n' +
-            '  data-sap-ui-async="true"\n' +
-            '  data-sap-ui-frameOptions="allow"><\/script>',
-        );
+      // Load UI5: try local vendored resources/ first, fallback to CDN.
+      // Uses createElement (not document.write) so the CDN bootstrap's
+      // src sets the correct resource base (sdk.openui5.org) for all
+      // library files. Also defers ComponentContainer init until UI5 core ready.
+      function initApp() {
+        if (window.sap && sap.ui && sap.ui.getCore) {
+          sap.ui.getCore().attachInit(function () {
+            new sap.ui.core.ComponentContainer({
+              name: "sap.fiori.poc",
+              settings: { id: "pocApp" },
+            }).placeAt("content");
+          });
+        } else {
+          setTimeout(initApp, 50);
+        }
       }
+      function loadUi5Cdn() {
+        if (document.getElementById("sap-ui-bootstrap-cdn")) return;
+        var s = document.createElement("script");
+        s.id = "sap-ui-bootstrap-cdn";
+        s.src = "https://sdk.openui5.org/1.151.0/resources/sap-ui-core.js";
+        s.setAttribute("data-sap-ui-theme", "sap_fiori_3");
+        s.setAttribute(
+          "data-sap-ui-resourceroots",
+          '{"sap.fiori.poc": "./webapp"}',
+        );
+        s.setAttribute(
+          "data-sap-ui-oninit",
+          "module:sap/ui/core/ComponentSupport",
+        );
+        s.setAttribute("data-sap-ui-compatversion", "edge");
+        s.setAttribute("data-sap-ui-async", "true");
+        s.setAttribute("data-sap-ui-frameOptions", "allow");
+        s.onload = initApp;
+        document.head.appendChild(s);
+      }
+      function ui5LocalFallback() {
+        loadUi5Cdn();
+      }
+      // start init loop — will wait until whichever bootstrap succeeds
+      initApp();
     </script>
     <script
       id="sap-ui-bootstrap"
       src="./resources/sap-ui-core.js"
-      onerror="ui5CdnFallback()"
+      onerror="ui5LocalFallback()"
       data-sap-ui-theme="sap_fiori_3"
       data-sap-ui-resourceroots='{"sap.fiori.poc": "./webapp"}'
       data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
       data-sap-ui-compatversion="edge"
       data-sap-ui-async="true"
       data-sap-ui-frameOptions="allow"
+      onload="initApp()"
     ></script>
-    <script>
-      sap.ui.getCore().attachInit(function () {
-        new sap.ui.core.ComponentContainer({
-          name: "sap.fiori.poc",
-          settings: { id: "pocApp" },
-        }).placeAt("content");
-      });
-    </script>
   </head>
   <body class="sapUiBody sapUiSizeCompact" id="content"></body>
 </html>
