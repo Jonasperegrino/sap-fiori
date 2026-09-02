@@ -1,0 +1,17 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+  <Toolbar class="pocBrandBar">
+    <ToolbarSpacer width="0.5rem"/>
+    <Image
+      src="webapp/img/logo.svg"
+      alt="Nexus Supply logo"
+      decorative="false"
+      height="1.6rem"
+      class="pocBrandLogo"/>
+    <Title level="H3" text="Nexus Supply" wrapping="false" class="pocBrandName"/>
+    <ToolbarSeparator/>
+    <Button text="Dashboard" type="Transparent" icon="sap-icon://home" press="onNavDashboard"/>
+    <Button text="Catalog" type="Transparent" icon="sap-icon://product" press="onNavCatalog"/>
+    <Button text="Order History" type="Transparent" icon="sap-icon://history" press="onNavOrders"/>
+    <ToolbarSpacer/>
+  </Toolbar>
+</core:FragmentDefinition>

@@ -1,0 +1,76 @@
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  controllerName="sap.fiori.poc.controller.Dashboard"
+  displayBlock="true">
+  <Page
+    id="dashboardPage"
+    title="Sales Dashboard">
+    <ObjectHeader
+      id="welcomeHeader"
+      title="Welcome, demo"
+      intro="SAP Fiori PoC Application"/>
+    <core:Fragment type="XML" fragmentName="sap.fiori.poc.view.NavBar"/>
+    <HBox class="pocKpiRow" wrap="Wrap">
+      <VBox class="pocKpiCard pocKpiAccentBlue">
+        <Title text="{kpi>/totalOrders}" titleStyle="H2" class="pocKpiValue"/>
+        <Text text="Total Orders" class="pocKpiLabel"/>
+      </VBox>
+      <VBox class="pocKpiCard pocKpiAccentAmber">
+        <Title text="{kpi>/openOrders}" titleStyle="H2" class="pocKpiValue"/>
+        <Text text="Pending Approval" class="pocKpiLabel"/>
+      </VBox>
+      <VBox class="pocKpiCard pocKpiAccentGreen">
+        <Title text="{kpi>/shippedOrders}" titleStyle="H2" class="pocKpiValue"/>
+        <Text text="Shipped" class="pocKpiLabel"/>
+      </VBox>
+      <VBox class="pocKpiCard pocKpiAccentViolet">
+        <Title text="{kpi>/totalValue}" titleStyle="H2" class="pocKpiValue"/>
+        <Text text="Total Value" class="pocKpiLabel"/>
+      </VBox>
+    </HBox>
+    <VBox class="pocTablePanel">
+      <Toolbar class="pocTableToolbar">
+        <Title level="H3" titleStyle="H5" text="Sales Orders" wrapping="false"/>
+        <Text text="Click a row to open the customer detail" class="pocTableHint sapUiTinyMarginBegin"/>
+        <ToolbarSpacer/>
+      </Toolbar>
+      <Table
+        id="salesTable"
+        inset="false"
+        items="{path: 'orders>/'}">
+        <columns>
+          <Column id="colOrderId">
+            <Text text="Order ID"/>
+          </Column>
+          <Column id="colCustomer">
+            <Text text="Customer"/>
+          </Column>
+          <Column id="colAmount">
+            <Text text="Amount"/>
+          </Column>
+          <Column id="colStatus">
+            <Text text="Status"/>
+          </Column>
+          <Column id="colBuilt">
+            <Text text="Built"/>
+          </Column>
+        </columns>
+        <items>
+          <ColumnListItem press="onRowPress">
+            <cells>
+              <Text text="{orders>id}"/>
+              <Text text="{orders>customer}"/>
+              <Text text="{orders>amount}"/>
+              <ObjectStatus
+                text="{orders>status}"
+                state="{parts: ['orders>status'], formatter: '.formatStatus'}"/>
+              <Text text="{orders>built}"/>
+            </cells>
+          </ColumnListItem>
+        </items>
+      </Table>
+    </VBox>
+  </Page>
+</mvc:View>

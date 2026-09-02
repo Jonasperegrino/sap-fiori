@@ -1,0 +1,182 @@
+[
+  {
+    "id": "SO-1001",
+    "customer": "Acme Corp",
+    "customerId": "C-1001",
+    "amount": "\u20ac12,450.00",
+    "amountEur": 12450,
+    "status": "Approved",
+    "built": "2026-01-15"
+  },
+  {
+    "id": "SO-1002",
+    "customer": "GlobalTech",
+    "customerId": "C-1002",
+    "amount": "\u20ac8,230.00",
+    "amountEur": 8230,
+    "status": "Pending",
+    "built": "2026-02-03"
+  },
+  {
+    "id": "SO-1003",
+    "customer": "EuroParts",
+    "customerId": "C-1003",
+    "amount": "\u20ac3,675.50",
+    "amountEur": 3675.5,
+    "status": "Shipped",
+    "built": "2025-11-20"
+  },
+  {
+    "id": "SO-1004",
+    "customer": "Nordic Supply",
+    "customerId": "C-1004",
+    "amount": "\u20ac21,100.00",
+    "amountEur": 21100,
+    "status": "Approved",
+    "built": "2026-04-01"
+  },
+  {
+    "id": "SO-1005",
+    "customer": "Iberia Trading",
+    "customerId": "C-1005",
+    "amount": "\u20ac6,940.00",
+    "amountEur": 6940,
+    "status": "Shipped",
+    "built": "2025-12-04"
+  },
+  {
+    "id": "SO-1006",
+    "customer": "Atlas Industries",
+    "customerId": "C-1006",
+    "amount": "\u20ac15,760.00",
+    "amountEur": 15760,
+    "status": "Rejected",
+    "built": "2026-02-18"
+  },
+  {
+    "id": "SO-1007",
+    "customer": "Eastline Logistics",
+    "customerId": "C-1007",
+    "amount": "\u20ac4,930.50",
+    "amountEur": 4930.5,
+    "status": "Approved",
+    "built": "2026-03-02"
+  },
+  {
+    "id": "SO-1008",
+    "customer": "Bluewave Energy",
+    "customerId": "C-1008",
+    "amount": "\u20ac9,120.00",
+    "amountEur": 9120,
+    "status": "Pending",
+    "built": "2026-04-22"
+  },
+  {
+    "id": "SO-1009",
+    "customer": "Acme Corp",
+    "customerId": "C-1001",
+    "amount": "\u20ac2,580.00",
+    "amountEur": 2580,
+    "status": "Shipped",
+    "built": "2026-05-14"
+  },
+  {
+    "id": "SO-1010",
+    "customer": "GlobalTech",
+    "customerId": "C-1002",
+    "amount": "\u20ac11,350.00",
+    "amountEur": 11350,
+    "status": "Approved",
+    "built": "2026-06-09"
+  },
+  {
+    "id": "SO-1011",
+    "customer": "Nordic Supply",
+    "customerId": "C-1004",
+    "amount": "\u20ac1,740.00",
+    "amountEur": 1740,
+    "status": "Cancelled",
+    "built": "2026-07-01"
+  },
+  {
+    "id": "SO-1012",
+    "customer": "EuroParts",
+    "customerId": "C-1003",
+    "amount": "\u20ac7,890.00",
+    "amountEur": 7890,
+    "status": "Pending",
+    "built": "2026-08-10"
+  },
+  {
+    "id": "SO-1013",
+    "customer": "GlobalTech",
+    "customerId": "C-1002",
+    "amount": "\u20ac5,420.00",
+    "amountEur": 5420,
+    "status": "Shipped",
+    "built": "2025-09-14"
+  },
+  {
+    "id": "SO-1014",
+    "customer": "EuroParts",
+    "customerId": "C-1003",
+    "amount": "\u20ac13,275.00",
+    "amountEur": 13275,
+    "status": "Pending",
+    "built": "2025-08-02"
+  },
+  {
+    "id": "SO-1015",
+    "customer": "Iberia Trading",
+    "customerId": "C-1005",
+    "amount": "\u20ac2,310.50",
+    "amountEur": 2310.5,
+    "status": "Pending",
+    "built": "2025-10-21"
+  },
+  {
+    "id": "SO-1016",
+    "customer": "Atlas Industries",
+    "customerId": "C-1006",
+    "amount": "\u20ac18,940.00",
+    "amountEur": 18940,
+    "status": "Shipped",
+    "built": "2025-07-11"
+  },
+  {
+    "id": "SO-1017",
+    "customer": "Eastline Logistics",
+    "customerId": "C-1007",
+    "amount": "\u20ac980.00",
+    "amountEur": 980,
+    "status": "Shipped",
+    "built": "2025-06-30"
+  },
+  {
+    "id": "SO-1018",
+    "customer": "Bluewave Energy",
+    "customerId": "C-1008",
+    "amount": "\u20ac7,645.00",
+    "amountEur": 7645,
+    "status": "Pending",
+    "built": "2025-05-19"
+  },
+  {
+    "id": "SO-1019",
+    "customer": "Nordic Supply",
+    "customerId": "C-1004",
+    "amount": "\u20ac4,120.00",
+    "amountEur": 4120,
+    "status": "Shipped",
+    "built": "2025-04-08"
+  },
+  {
+    "id": "SO-1020",
+    "customer": "Helios Manufacturing",
+    "customerId": "C-1009",
+    "amount": "\u20ac11,500.00",
+    "amountEur": 11500,
+    "status": "Pending",
+    "built": "2025-03-03"
+  }
+]

@@ -1,0 +1,9 @@
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  displayBlock="true"
+  controllerName="sap.fiori.poc.controller.App">
+  <Shell>
+    <App id="app"/>
+  </Shell>
+</mvc:View>

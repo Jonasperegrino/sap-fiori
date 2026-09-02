@@ -1,0 +1,569 @@
+/* ==========================================================================
+   sap-poc custom theme (#690) — modern Fiori styling on top of sap_fiori_3
+   --------------------------------------------------------------------------
+   Pure CSS additive overrides. No DOM structure, ids or semantic classes are
+   touched: the QA agent's audits (visible .sapMPage, .sapMTitle size, table
+   extraction, touch-target checks) must keep passing unchanged.
+   ========================================================================== */
+
+:root {
+  /* Palette */
+  --poc-primary: #0070f2;
+  --poc-primary-strong: #0057c2;
+  --poc-primary-soft: #e6f1fd;
+  --poc-accent: #f2b705;
+  --poc-accent-soft: #fdf3d0;
+  --poc-ok: #1e8e3e;
+  --poc-warn: #d9822b;
+  --poc-err: #c0392b;
+  --poc-bg: #eef2f7;
+  --poc-surface: #ffffff;
+  --poc-surface-flat: #f6f8fb;
+  --poc-text: #1b2430;
+  --poc-text-soft: #5b6b7c;
+  --poc-border: #d9e0e8;
+  --poc-radius: 10px;
+  --poc-shadow: 0 1px 3px rgba(16, 24, 40, 0.08),
+    0 4px 12px rgba(16, 24, 40, 0.06);
+  --poc-shadow-lg: 0 8px 24px rgba(16, 24, 40, 0.12);
+}
+
+.sapUiBody {
+  background: var(--poc-bg);
+}
+
+/* --------------------------------------------------------------------------
+   Page surface: subtle card feel, generous spacing
+   -------------------------------------------------------------------------- */
+.sapMPage {
+  background: var(--poc-bg);
+}
+
+.sapMPage > .sapMPageHeader .sapMIBar,
+.sapMPage > .sapMPageSubHeader .sapMIBar {
+  background: var(--poc-surface);
+  border-bottom: 1px solid var(--poc-border);
+}
+
+/* --------------------------------------------------------------------------
+   ObjectHeader cards
+   -------------------------------------------------------------------------- */
+.sapMOH {
+  background: var(--poc-surface);
+  border: 1px solid var(--poc-border);
+  border-radius: var(--poc-radius);
+  box-shadow: var(--poc-shadow);
+  margin: 1rem;
+}
+
+.sapMOH .sapMOHTitle {
+  color: var(--poc-text);
+}
+
+.sapMOH .sapMOHIntro,
+.sapMOH .sapMObjectAttributeText {
+  color: var(--poc-text-soft);
+}
+
+/* --------------------------------------------------------------------------
+   Toolbar / NavBar
+   -------------------------------------------------------------------------- */
+.sapMTB {
+  background: var(--poc-surface);
+  border: 1px solid var(--poc-border);
+  border-radius: var(--poc-radius);
+  box-shadow: var(--poc-shadow);
+  margin: 0 1rem 1rem;
+}
+
+.sapMTB .sapMBtn:hover {
+  background: var(--poc-primary-soft);
+}
+
+/* --------------------------------------------------------------------------
+   Tables: header fill, alternating rows, hover, sticky-ish header
+   -------------------------------------------------------------------------- */
+.sapMListTbl {
+  background: var(--poc-surface);
+  border: 1px solid var(--poc-border);
+  border-radius: var(--poc-radius);
+  box-shadow: var(--poc-shadow);
+  overflow: hidden;
+}
+
+.sapMListTblHeaderCell {
+  background: var(--poc-surface-flat) !important;
+  color: var(--poc-text-soft);
+  border-bottom: 2px solid var(--poc-border);
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+
+.sapMListTbl > table > tbody > tr.sapMListTblRow {
+  transition: background-color 0.15s ease-out;
+}
+
+.sapMListTbl > table > tbody > tr.sapMListTblRow:nth-child(even) {
+  background-color: #fafbfc;
+}
+
+.sapMListTbl > table > tbody > tr.sapMListTblRow:hover {
+  background-color: var(--poc-primary-soft);
+  cursor: pointer;
+}
+
+.sapMListTblRow > td {
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid #eef1f5;
+}
+
+.sapMListTbl > table > tbody > tr:last-child > td {
+  border-bottom: none;
+}
+
+/* --------------------------------------------------------------------------
+   Buttons: primary/secondary variants, hover/active, focus ring
+   -------------------------------------------------------------------------- */
+.sapMBtn {
+  border-radius: 8px;
+  transition:
+    transform 0.12s ease-out,
+    box-shadow 0.12s ease-out,
+    background-color 0.12s ease-out;
+}
+
+/* The fiori_3 theme (CDN, loads after us) paints emphasized buttons with a
+   gradient + solid that beat any non-important selector — override with
+   important so the brand color always wins. */
+button.sapMBtnBase .sapMBtnEmphasized {
+  background-color: var(--poc-primary) !important;
+  background-image: none !important;
+  border-color: var(--poc-primary) !important;
+  box-shadow: 0 2px 6px rgba(0, 112, 242, 0.35);
+}
+
+button.sapMBtnBase .sapMBtnEmphasized:hover {
+  background-color: var(--poc-primary-strong) !important;
+  border-color: var(--poc-primary-strong) !important;
+  box-shadow: 0 4px 10px rgba(0, 112, 242, 0.4);
+}
+
+.sapMBtn:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+.sapMBtn:focus-visible {
+  outline: 2px solid var(--poc-primary);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Inputs: focus ring, validation colors
+   -------------------------------------------------------------------------- */
+.sapMInputBaseContentWrapper {
+  border-radius: 8px;
+  transition:
+    box-shadow 0.12s ease-out,
+    border-color 0.12s ease-out;
+}
+
+.sapMInputBaseContentWrapper.sapMInputBaseContentWrapperStateWarning {
+  border-color: var(--poc-warn);
+  box-shadow: 0 0 0 2px rgba(217, 130, 43, 0.25);
+}
+
+.sapMInputBaseContentWrapper.sapMInputBaseContentWrapperStateError {
+  border-color: var(--poc-err);
+  box-shadow: 0 0 0 2px rgba(192, 57, 43, 0.25);
+}
+
+.sapMInputBaseContentWrapper.sapMInputBaseContentWrapperFocus {
+  border-color: var(--poc-primary);
+  box-shadow: 0 0 0 2px rgba(0, 112, 242, 0.3);
+}
+
+.sapMInputBaseInner {
+  color: var(--poc-text);
+}
+
+/* --------------------------------------------------------------------------
+   Status pills (ObjectStatus)
+   -------------------------------------------------------------------------- */
+.sapMObjectStatusSuccess .sapMObjectStatusText::before,
+.sapMObjectStatusWarning .sapMObjectStatusText::before,
+.sapMObjectStatusError .sapMObjectStatusText::before,
+.sapMObjectStatusInformation .sapMObjectStatusText::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.sapMObjectStatusSuccess .sapMObjectStatusText::before {
+  background: var(--poc-ok);
+}
+.sapMObjectStatusWarning .sapMObjectStatusText::before {
+  background: var(--poc-warn);
+}
+.sapMObjectStatusError .sapMObjectStatusText::before {
+  background: var(--poc-err);
+}
+.sapMObjectStatusInformation .sapMObjectStatusText::before {
+  background: var(--poc-primary);
+}
+
+/* --------------------------------------------------------------------------
+   Loading state (#691): skeleton shimmer behind the table busy overlay
+   -------------------------------------------------------------------------- */
+@keyframes pocShimmer {
+  0% {
+    background-position: -480px 0;
+  }
+  100% {
+    background-position: 480px 0;
+  }
+}
+
+.sapMListTbl.sapUiLocalBusy > table > tbody:empty::after {
+  content: "";
+  display: table-row;
+  height: 56px;
+  background: linear-gradient(90deg, #f1f3f6 25%, #e6eaf0 37%, #f1f3f6 63%);
+  background-size: 960px 100%;
+  animation: pocShimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes pocContentIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sapMListTbl {
+  animation: pocContentIn 0.28s ease-out;
+}
+
+/* --------------------------------------------------------------------------
+   Page transitions (#692): entries are driven by the router (manifest), this
+   only softens in-page content; reduced-motion kills all animation.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Responsive (mobile / tablet / desktop)
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .sapMOH {
+    margin: 0.75rem;
+  }
+  .sapMTB {
+    margin: 0 0.75rem 0.75rem;
+    border-radius: 8px;
+  }
+  .sapMListTbl {
+    border-radius: 8px;
+    font-size: 0.85rem;
+  }
+  .sapMListTblHeaderCell {
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .sapMOH {
+    margin: 0.5rem;
+    padding: 0.25rem;
+  }
+  .sapMTB {
+    margin: 0 0.5rem 0.5rem;
+  }
+  .sapMPage > .sapMPageHeader .sapMIBar-title {
+    font-size: 1.1rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+    Optional dark mode (prefers-color-scheme) — follows the OS, default light
+   -------------------------------------------------------------------------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --poc-bg: #10141a;
+    --poc-surface: #1a212b;
+    --poc-surface-flat: #212a36;
+    --poc-text: #e8edf3;
+    --poc-text-soft: #9aa8b8;
+    --poc-border: #2c3743;
+    --poc-primary-soft: #16304f;
+  }
+  .sapUiBody {
+    background: var(--poc-bg);
+  }
+  .sapMTB .sapMBtn:hover {
+    background: var(--poc-primary-soft);
+  }
+  .sapMListTbl > table > tbody > tr.sapMListTblRow:nth-child(even) {
+    background-color: #1d2530;
+  }
+  .sapMListTbl > table > tbody > tr.sapMListTblRow:hover {
+    background-color: var(--poc-primary-soft);
+  }
+  .sapMListTblRow > td {
+    border-bottom-color: #242e3a;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Brand assets & shared surfaces (#702 polish pass)
+   -------------------------------------------------------------------------- */
+.pocBrandBar .pocBrandLogo {
+  margin-right: 0.25rem;
+  vertical-align: middle;
+}
+
+.pocBrandName {
+  color: var(--poc-text);
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+/* Faint brand-tinted backdrop behind every page surface */
+.sapMPage {
+  background: radial-gradient(
+      1100px 500px at 85% -10%,
+      rgba(0, 112, 242, 0.07),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 420px at -10% 110%,
+      rgba(242, 183, 5, 0.05),
+      transparent 60%
+    ),
+    var(--poc-bg);
+}
+
+/* --------------------------------------------------------------------------
+   Login: split screen with branded panel
+   -------------------------------------------------------------------------- */
+.pocLoginSplit {
+  min-height: calc(100vh - 2rem);
+  margin: 1rem;
+}
+
+.pocLoginBrand {
+  padding: 3rem 2.75rem;
+  justify-content: flex-start;
+  color: #ffffff;
+  border-radius: var(--poc-radius);
+  background-image: linear-gradient(
+      160deg,
+      rgba(0, 27, 64, 0.35),
+      rgba(0, 48, 110, 0.05)
+    ),
+    url("../img/login-bg.svg");
+  background-size: cover;
+  background-position: center;
+  box-shadow: var(--poc-shadow-lg);
+}
+
+.pocLoginBrandTitle {
+  color: #ffffff !important;
+  font-size: 1.75rem !important;
+  margin-top: 1.5rem;
+}
+
+.pocLoginTagline {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
+  max-width: 26rem;
+  margin-top: 0.5rem;
+}
+
+.pocLoginPoints {
+  margin-top: 2rem;
+}
+
+.pocLoginPoint {
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.pocLoginPoint .sapMText {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.pocPointIcon {
+  color: var(--poc-accent);
+  margin-right: 0.5rem;
+  font-size: 1rem;
+}
+
+.pocLoginFormSide {
+  padding: 2rem 1rem;
+}
+
+.pocLoginCard {
+  width: min(380px, 90%);
+  padding: 2rem 2rem 1.5rem;
+  background: var(--poc-surface);
+  border: 1px solid var(--poc-border);
+  border-radius: 14px;
+  box-shadow: var(--poc-shadow-lg);
+}
+
+.pocLoginSubtitle {
+  color: var(--poc-text-soft);
+  margin: 0.25rem 0 1.5rem;
+}
+
+.pocLoginLabel {
+  margin-bottom: 0.25rem;
+}
+
+.pocLoginField {
+  margin-bottom: 1rem;
+}
+
+.pocLoginButton {
+  margin-top: 0.5rem;
+  height: 2.75rem;
+}
+
+.pocLoginHint {
+  color: var(--poc-text-soft);
+  font-size: 0.78rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   Dashboard KPI cards
+   -------------------------------------------------------------------------- */
+.pocKpiRow {
+  margin: 0 1rem 1rem;
+  gap: 1rem;
+}
+
+.pocKpiCard {
+  flex: 1;
+  min-width: 11rem;
+  padding: 1rem 1.25rem 0.9rem;
+  background: var(--poc-surface);
+  border: 1px solid var(--poc-border);
+  border-radius: var(--poc-radius);
+  box-shadow: var(--poc-shadow);
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.15s ease-out,
+    box-shadow 0.15s ease-out;
+}
+
+.pocKpiCard::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: var(--kpi-accent, var(--poc-primary));
+}
+
+.pocKpiCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--poc-shadow-lg);
+}
+
+.pocKpiAccentBlue {
+  --kpi-accent: #0070f2;
+}
+.pocKpiAccentAmber {
+  --kpi-accent: #f2b705;
+}
+.pocKpiAccentGreen {
+  --kpi-accent: #1e8e3e;
+}
+.pocKpiAccentViolet {
+  --kpi-accent: #7b4dff;
+}
+
+.pocKpiValue {
+  font-size: 1.6rem !important;
+  color: var(--poc-text);
+  margin-bottom: 0.15rem;
+}
+
+.pocKpiLabel {
+  color: var(--poc-text-soft);
+  font-size: 0.82rem;
+}
+
+/* Table panel wrapper (dashboard) */
+.pocTablePanel {
+  margin: 0 1rem 1rem;
+  background: transparent;
+}
+
+.pocTableToolbar {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  margin: 0 0 0.5rem !important;
+  padding-left: 0.25rem;
+}
+
+.pocTableToolbar .pocTableHint {
+  color: var(--poc-text-soft);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 640px) {
+  .pocLoginBrand {
+    display: none;
+  }
+  .pocLoginFormSide {
+    width: 100%;
+  }
+  .pocKpiRow {
+    gap: 0.5rem;
+    margin: 0 0.5rem 0.5rem;
+  }
+  .pocKpiCard {
+    min-width: calc(50% - 0.5rem);
+  }
+  .pocTablePanel {
+    margin: 0 0.5rem 0.5rem;
+  }
+}
+
+/* Dark-mode adjustments for polished components */
+@media (prefers-color-scheme: dark) {
+  .pocBrandName,
+  .pocKpiValue {
+    color: var(--poc-text);
+  }
+  .pocKpiCard {
+    background: var(--poc-surface);
+  }
+  .pocLoginCard {
+    background: var(--poc-surface);
+  }
+}

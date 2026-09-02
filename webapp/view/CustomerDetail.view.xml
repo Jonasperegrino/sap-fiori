@@ -1,0 +1,59 @@
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  controllerName="sap.fiori.poc.controller.CustomerDetail"
+  displayBlock="true">
+  <Page
+    id="customerPage"
+    title="Customer Details">
+    <ObjectHeader
+      id="customerHeader"
+      title="{customers>name}"
+      intro="{customers>country} · {customers>city}"
+      icon="sap-icon://customer">
+      <attributes>
+        <ObjectAttribute text="Contact: {customers>contact}"/>
+        <ObjectAttribute text="{customers>email}"/>
+        <ObjectAttribute text="Customer since {customers>since}"/>
+        <ObjectAttribute text="Credit rating: {customers>creditRating}"/>
+      </attributes>
+    </ObjectHeader>
+    <Toolbar>
+      <Text text="Orders in 2026: {kpi>orderCount}" class="sapUiSmallMarginEnd"/>
+      <Text text="Total value: {kpi>totalValue}" class="sapUiSmallMarginEnd"/>
+      <ToolbarSpacer/>
+      <Button text="Back" type="Ghost" icon="sap-icon://nav-back" press="onBack"/>
+    </Toolbar>
+    <Table
+      id="customerOrdersTable"
+      inset="false"
+      items="{path: 'orders>/'}">
+      <columns>
+        <Column id="colOrderId">
+          <Text text="Order ID"/>
+        </Column>
+        <Column id="colAmount">
+          <Text text="Amount"/>
+        </Column>
+        <Column id="colStatus">
+          <Text text="Status"/>
+        </Column>
+        <Column id="colBuilt">
+          <Text text="Built"/>
+        </Column>
+      </columns>
+      <items>
+        <ColumnListItem>
+          <cells>
+            <Text text="{orders>id}"/>
+            <Text text="{orders>amount}"/>
+            <ObjectStatus
+              text="{orders>status}"
+              state="{parts: ['orders>status'], formatter: '.formatStatus'}"/>
+            <Text text="{orders>built}"/>
+          </cells>
+        </ColumnListItem>
+      </items>
+    </Table>
+  </Page>
+</mvc:View>

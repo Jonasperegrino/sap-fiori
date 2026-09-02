@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0057c2" />
+    <link rel="icon" type="image/svg+xml" href="./webapp/img/logo.svg" />
+    <title>SAP Fiori PoC</title>
+    <script>
+      // Fallback for fresh clones without a vendored runtime: pinned CDN version.
+      // Run `make vendor-ui5` to serve everything locally (offline demos).
+      function ui5CdnFallback() {
+        document.write(
+          '<script src="https://sdk.openui5.org/1.151.0/resources/sap-ui-core.js"\n' +
+            '  data-sap-ui-theme="sap_fiori_3"\n' +
+            '  data-sap-ui-resourceroots=\'{"sap.fiori.poc": "./webapp"}\'\n' +
+            '  data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"\n' +
+            '  data-sap-ui-compatversion="edge"\n' +
+            '  data-sap-ui-async="true"\n' +
+            '  data-sap-ui-frameOptions="allow"><\/script>',
+        );
+      }
+    </script>
+    <script
+      id="sap-ui-bootstrap"
+      src="./resources/sap-ui-core.js"
+      onerror="ui5CdnFallback()"
+      data-sap-ui-theme="sap_fiori_3"
+      data-sap-ui-resourceroots='{"sap.fiori.poc": "./webapp"}'
+      data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
+      data-sap-ui-compatversion="edge"
+      data-sap-ui-async="true"
+      data-sap-ui-frameOptions="allow"
+    ></script>
+    <script>
+      sap.ui.getCore().attachInit(function () {
+        new sap.ui.core.ComponentContainer({
+          name: "sap.fiori.poc",
+          settings: { id: "pocApp" },
+        }).placeAt("content");
+      });
+    </script>
+  </head>
+  <body class="sapUiBody sapUiSizeCompact" id="content"></body>
+</html>

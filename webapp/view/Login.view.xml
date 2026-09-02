@@ -1,0 +1,72 @@
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  controllerName="sap.fiori.poc.controller.Login"
+  displayBlock="true">
+  <Page
+    id="loginPage"
+    showHeader="false"
+    showNavButton="false">
+    <HBox id="loginSplit" class="pocLoginSplit" fitContainer="true">
+      <VBox class="pocLoginBrand" width="45%">
+        <Image
+          class="pocLoginLogo"
+          src="webapp/img/logo.svg"
+          alt="Nexus Supply logo"
+          decorative="false"
+          width="4rem"/>
+        <Title level="H1" titleStyle="H3" text="Nexus Supply Co." wrapping="false" class="pocLoginBrandTitle"/>
+        <Text text="Enterprise order management, powered by SAP Fiori." class="pocLoginTagline" wrapping="true"/>
+        <VBox class="pocLoginPoints">
+          <HBox class="pocLoginPoint">
+            <core:Icon src="sap-icon://accept" class="pocPointIcon"/>
+            <Text text="Live catalog with real-time stock" wrapping="false"/>
+          </HBox>
+          <HBox class="pocLoginPoint">
+            <core:Icon src="sap-icon://accept" class="pocPointIcon"/>
+            <Text text="One-click ordering and history" wrapping="false"/>
+          </HBox>
+          <HBox class="pocLoginPoint">
+            <core:Icon src="sap-icon://accept" class="pocPointIcon"/>
+            <Text text="Customer insights and KPIs" wrapping="false"/>
+          </HBox>
+        </VBox>
+      </VBox>
+      <VBox class="pocLoginFormSide" alignItems="Center" justifyContent="Center" width="55%">
+        <VBox class="pocLoginCard">
+          <Title level="H2" titleStyle="H4" text="Welcome back" wrapping="false"/>
+          <Text text="Sign in to your account to continue" class="pocLoginSubtitle"/>
+          <Label
+            text="Username"
+            labelFor="usernameInput"
+            class="pocLoginLabel"/>
+          <Input
+            id="usernameInput"
+            placeholder="Username"
+            width="100%"
+            class="pocLoginField"/>
+          <Label
+            text="Password"
+            labelFor="passwordInput"
+            class="pocLoginLabel"/>
+          <Input
+            id="passwordInput"
+            placeholder="Password"
+            type="Password"
+            width="100%"
+            class="pocLoginField"/>
+          <Button
+            id="loginButton"
+            text="Log In"
+            type="Emphasized"
+            icon="sap-icon://log"
+            width="100%"
+            class="pocLoginButton"
+            press="onLogin"/>
+          <Text text="Demo access — user: demo · password: password123" class="pocLoginHint"/>
+        </VBox>
+      </VBox>
+    </HBox>
+  </Page>
+</mvc:View>

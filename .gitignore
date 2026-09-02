@@ -1,0 +1,22 @@
+# sap-fiori — static UI5 PoC
+
+# vendored runtime (71 MB, pulled via make vendor-ui5)
+resources/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.log
+
+# temp
+*.tmp
+*.bak
+
+# node (if you later add eslint/prettier locally)
+node_modules/
+npm-debug.log*

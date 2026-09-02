@@ -1,0 +1,102 @@
+[
+  {
+    "id": "C-1001",
+    "name": "Acme Corp",
+    "city": "Berlin",
+    "country": "Germany",
+    "contact": "Jane Doe",
+    "email": "jane.doe@acme-corp.example",
+    "since": "2019-03-12",
+    "creditRating": "A"
+  },
+  {
+    "id": "C-1002",
+    "name": "GlobalTech",
+    "city": "Munich",
+    "country": "Germany",
+    "contact": "Tom M\u00fcller",
+    "email": "tom.mueller@globaltech.example",
+    "since": "2020-07-01",
+    "creditRating": "B"
+  },
+  {
+    "id": "C-1003",
+    "name": "EuroParts",
+    "city": "Paris",
+    "country": "France",
+    "contact": "Claire Dupont",
+    "email": "claire.dupont@europarts.example",
+    "since": "2021-01-18",
+    "creditRating": "A"
+  },
+  {
+    "id": "C-1004",
+    "name": "Nordic Supply",
+    "city": "Oslo",
+    "country": "Norway",
+    "contact": "Erik Johansen",
+    "email": "erik.johansen@nordicsupply.example",
+    "since": "2022-09-30",
+    "creditRating": "B"
+  },
+  {
+    "id": "C-1005",
+    "name": "Iberia Trading",
+    "city": "Madrid",
+    "country": "Spain",
+    "contact": "Luc\u00eda Fern\u00e1ndez",
+    "email": "lucia.fernandez@iberiatrading.example",
+    "since": "2020-11-05",
+    "creditRating": "C"
+  },
+  {
+    "id": "C-1006",
+    "name": "Atlas Industries",
+    "city": "Zurich",
+    "country": "Switzerland",
+    "contact": "Hans Keller",
+    "email": "hans.keller@atlas-ind.example",
+    "since": "2018-05-22",
+    "creditRating": "A"
+  },
+  {
+    "id": "C-1007",
+    "name": "Eastline Logistics",
+    "city": "Warsaw",
+    "country": "Poland",
+    "contact": "Anna Nowak",
+    "email": "anna.nowak@eastline.example",
+    "since": "2023-02-14",
+    "creditRating": "C"
+  },
+  {
+    "id": "C-1008",
+    "name": "Bluewave Energy",
+    "city": "Dublin",
+    "country": "Ireland",
+    "contact": "Sean O'Brien",
+    "email": "sean.obrien@bluewave.example",
+    "since": "2021-06-08",
+    "creditRating": "B"
+  },
+  {
+    "id": "C-1009",
+    "name": "Helios Manufacturing",
+    "city": "Valencia",
+    "country": "Spain",
+    "contact": "Marta Ruiz",
+    "email": "marta.ruiz@helios.example",
+    "since": "2024-02-01",
+    "creditRating": "B"
+  },
+  {
+    "id": "C-1010",
+    "name": "Quantum Robotics",
+    "city": "Eindhoven",
+    "country": "Netherlands",
+    "contact": "Daan Visser",
+    "email": "daan.visser@quantum.example",
+    "since": "2023-10-17",
+    "creditRating": "A"
+  }
+]

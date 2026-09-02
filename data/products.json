@@ -1,0 +1,172 @@
+[
+  {
+    "id": "PRD-1001",
+    "name": "Industrial Pump P-200",
+    "category": "Machinery",
+    "price": 12450,
+    "stock": 14,
+    "unit": "PC",
+    "description": "High-pressure centrifugal pump, 200 l/min",
+    "active": true
+  },
+  {
+    "id": "PRD-1002",
+    "name": "Hydraulic Valve HV-5",
+    "category": "Machinery",
+    "price": 1850,
+    "stock": 42,
+    "unit": "PC",
+    "description": "5-way hydraulic control valve",
+    "active": true
+  },
+  {
+    "id": "PRD-1003",
+    "name": "Servo Motor SM-90",
+    "category": "Machinery",
+    "price": 3200,
+    "stock": 8,
+    "unit": "PC",
+    "description": "90 Nm servo motor with encoder",
+    "active": true
+  },
+  {
+    "id": "PRD-1004",
+    "name": "PLC Controller PLC-X1",
+    "category": "Electronics",
+    "price": 7500,
+    "stock": 5,
+    "unit": "PC",
+    "description": "Modular programmable logic controller, 64 I/O",
+    "active": true
+  },
+  {
+    "id": "PRD-1005",
+    "name": "Thermal Sensor TS-100",
+    "category": "Electronics",
+    "price": 240,
+    "stock": 120,
+    "unit": "PC",
+    "description": "PT100 temperature sensor, -50..400 \u00b0C",
+    "active": true
+  },
+  {
+    "id": "PRD-1006",
+    "name": "Data Logger DL-4",
+    "category": "Electronics",
+    "price": 950,
+    "stock": 60,
+    "unit": "PC",
+    "description": "4-channel industrial data logger",
+    "active": true
+  },
+  {
+    "id": "PRD-1007",
+    "name": "Lubricant Oil 20L",
+    "category": "Consumables",
+    "price": 180,
+    "stock": 200,
+    "unit": "CAN",
+    "description": "Synthetic gear lubricant, 20L canister",
+    "active": true
+  },
+  {
+    "id": "PRD-1008",
+    "name": "Filter Cartridge FC-7",
+    "category": "Consumables",
+    "price": 90,
+    "stock": 500,
+    "unit": "PC",
+    "description": "7 \u00b5m hydraulic filter cartridge",
+    "active": true
+  },
+  {
+    "id": "PRD-1009",
+    "name": "Conveyor Belt CB-30",
+    "category": "Machinery",
+    "price": 4800,
+    "stock": 12,
+    "unit": "SET",
+    "description": "30 m modular conveyor belt section",
+    "active": true
+  },
+  {
+    "id": "PRD-1010",
+    "name": "Maintenance Service Day",
+    "category": "Services",
+    "price": 1200,
+    "stock": 30,
+    "unit": "DAY",
+    "description": "On-site maintenance, one technician per day",
+    "active": true
+  },
+  {
+    "id": "PRD-1011",
+    "name": "Calibration Service",
+    "category": "Services",
+    "price": 650,
+    "stock": 25,
+    "unit": "SET",
+    "description": "ISO 9001 instrument calibration certificate",
+    "active": true
+  },
+  {
+    "id": "PRD-1012",
+    "name": "Legacy I/O Module IO-8",
+    "category": "Electronics",
+    "price": 0,
+    "stock": 0,
+    "unit": "PC",
+    "description": "Discontinued I/O module (replaced by PLC-X1)",
+    "active": false
+  },
+  {
+    "id": "PRD-1013",
+    "name": "Edge Gateway EG-2",
+    "category": "Electronics",
+    "price": 2100,
+    "stock": 25,
+    "unit": "PC",
+    "description": "Industrial IoT edge gateway, OPC UA + MQTT",
+    "active": true
+  },
+  {
+    "id": "PRD-1014",
+    "name": "Safety Gloves Size L",
+    "category": "Consumables",
+    "price": 12,
+    "stock": 800,
+    "unit": "PAIR",
+    "description": "Cut-resistant level D work gloves",
+    "active": true
+  },
+  {
+    "id": "PRD-1015",
+    "name": "Vibration Sensor VS-3",
+    "category": "Electronics",
+    "price": 340,
+    "stock": 75,
+    "unit": "PC",
+    "description": "Triaxial vibration sensor, IO-Link interface",
+    "active": true
+  },
+  {
+    "id": "PRD-1016",
+    "name": "Training Workshop Day",
+    "category": "Services",
+    "price": 1500,
+    "stock": 20,
+    "unit": "DAY",
+    "description": "On-site operator training, up to 12 participants",
+    "active": true
+  },
+  {
+    "id": "PRD-1017",
+    "name": "Legacy HMI Panel H-4",
+    "category": "Electronics",
+    "price": 0,
+    "stock": 0,
+    "unit": "PC",
+    "description": "Discontinued 4-line HMI panel (replaced by EG-2)",
+    "active": false
+  }
+]

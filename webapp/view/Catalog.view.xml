@@ -1,0 +1,63 @@
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  controllerName="sap.fiori.poc.controller.Catalog"
+  displayBlock="true">
+  <Page
+    id="catalogPage"
+    title="Product Catalog">
+    <ObjectHeader
+      id="catalogHeader"
+      title="Place an order from stock"
+      intro="Enter a quantity and add to your order"/>
+    <core:Fragment type="XML" fragmentName="sap.fiori.poc.view.NavBar"/>
+    <Table
+      id="productTable"
+      inset="false"
+      items="{path: 'products>/'}">
+      <columns>
+        <Column id="colProductId">
+          <Text text="ID"/>
+        </Column>
+        <Column id="colName">
+          <Text text="Name"/>
+        </Column>
+        <Column id="colCategory">
+          <Text text="Category"/>
+        </Column>
+        <Column id="colPrice">
+          <Text text="Price"/>
+        </Column>
+        <Column id="colStock">
+          <Text text="Stock"/>
+        </Column>
+        <Column id="colQty">
+          <Text text="Qty"/>
+        </Column>
+        <Column id="colAction">
+          <Text text=""/>
+        </Column>
+      </columns>
+      <items>
+        <ColumnListItem>
+          <cells>
+            <Text text="{products>id}"/>
+            <Text text="{products>name}"/>
+            <Text text="{products>category}"/>
+            <Text text="{products>priceDisplay}"/>
+            <Text text="{products>stock}"/>
+            <Input
+              value="{products>qty}"
+              type="Number"
+              width="6rem"/>
+            <Button
+              text="Add to Order"
+              type="Emphasized"
+              press="onAddOrder"/>
+          </cells>
+        </ColumnListItem>
+      </items>
+    </Table>
+  </Page>
+</mvc:View>

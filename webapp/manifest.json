@@ -1,0 +1,92 @@
+{
+  "_version": "1.58.0",
+  "sap.app": {
+    "id": "sap.fiori.poc",
+    "type": "application",
+    "title": "SAP Fiori PoC",
+    "applicationVersion": {
+      "version": "1.0.0"
+    }
+  },
+  "sap.ui5": {
+    "dependencies": {
+      "minUI5Version": "1.108.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "rootView": {
+      "viewName": "sap.fiori.poc.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "app"
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/custom.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "viewPath": "sap.fiori.poc.view",
+        "controlId": "app",
+        "controlAggregation": "pages",
+        "async": true
+      },
+      "routes": [
+        {
+          "pattern": "",
+          "name": "login",
+          "target": "login"
+        },
+        {
+          "pattern": "dashboard",
+          "name": "dashboard",
+          "target": "dashboard"
+        },
+        {
+          "pattern": "catalog",
+          "name": "catalog",
+          "target": "catalog"
+        },
+        {
+          "pattern": "orders",
+          "name": "orders",
+          "target": "orders"
+        },
+        {
+          "pattern": "customer/{customerId}",
+          "name": "customer",
+          "target": "customer"
+        }
+      ],
+      "targets": {
+        "login": {
+          "viewName": "Login",
+          "transition": "fade"
+        },
+        "dashboard": {
+          "viewName": "Dashboard",
+          "transition": "fade"
+        },
+        "catalog": {
+          "viewName": "Catalog",
+          "transition": "fade"
+        },
+        "orders": {
+          "viewName": "OrderHistory",
+          "transition": "fade"
+        },
+        "customer": {
+          "viewName": "CustomerDetail",
+          "transition": "slide"
+        }
+      }
+    }
+  }
+}
