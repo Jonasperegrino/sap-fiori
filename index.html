@@ -12,8 +12,12 @@
       // src sets the correct resource base (sdk.openui5.org) for all
       // library files. Also defers ComponentContainer init until UI5 core ready.
       function initApp() {
+        if (window._appStarted) return;
         if (window.sap && sap.ui && sap.ui.getCore) {
+          window._appStarted = true;
           sap.ui.getCore().attachInit(function () {
+            if (window._pocAppCreated) return;
+            window._pocAppCreated = true;
             new sap.ui.core.ComponentContainer({
               name: "sap.fiori.poc",
               settings: { id: "pocApp" },
