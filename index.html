@@ -24,9 +24,12 @@
         }
       }
       function loadUi5Cdn() {
-        if (document.getElementById("sap-ui-bootstrap-cdn")) return;
+        if (window._ui5CdnLoading) return;
+        window._ui5CdnLoading = true;
+        var old = document.getElementById("sap-ui-bootstrap");
+        if (old) old.remove();
         var s = document.createElement("script");
-        s.id = "sap-ui-bootstrap-cdn";
+        s.id = "sap-ui-bootstrap";
         s.src = "https://sdk.openui5.org/1.151.0/resources/sap-ui-core.js";
         s.setAttribute("data-sap-ui-theme", "sap_fiori_3");
         s.setAttribute(
