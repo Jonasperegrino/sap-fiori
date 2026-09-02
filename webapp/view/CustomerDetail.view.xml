@@ -1,26 +1,59 @@
 <mvc:View
   xmlns:mvc="sap.ui.core.mvc"
   xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  xmlns:form="sap.ui.layout.form"
   controllerName="sap.fiori.poc.controller.CustomerDetail"
   displayBlock="true">
   <Page
     id="customerPage"
     title="Customer Details">
+    <core:Fragment type="XML" fragmentName="sap.fiori.poc.view.NavBar"/>
     <ObjectHeader
       id="customerHeader"
       title="{customers>name}"
-      intro="{customers>country} · {customers>city}"
+      intro="{customers>industry} · {customers>city}, {customers>country}"
       icon="sap-icon://customer">
       <attributes>
-        <ObjectAttribute text="Contact: {customers>contact}"/>
-        <ObjectAttribute text="{customers>email}"/>
-        <ObjectAttribute text="Customer since {customers>since}"/>
-        <ObjectAttribute text="Credit rating: {customers>creditRating}"/>
+        <ObjectAttribute title="Industry" text="{customers>industry}"/>
+        <ObjectAttribute title="Location" text="{customers>city}, {customers>country}"/>
+        <ObjectAttribute title="Customer since" text="{customers>since}"/>
+        <ObjectAttribute title="Credit rating" text="{customers>creditRating}"/>
       </attributes>
     </ObjectHeader>
+    <Panel headerText="Contact &amp; Company Details" expandable="false" class="sapUiSmallMargin">
+      <form:SimpleForm
+        id="customerDetailsForm"
+        editable="false"
+        layout="ResponsiveGridLayout"
+        labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12"
+        columnsXL="2" columnsL="2" columnsM="1"
+        class="sapUiResponsiveMargin">
+        <form:content>
+          <core:Title text="Contact"/>
+          <Label text="Name"/>
+          <Text text="{customers>contact}"/>
+          <Label text="Title"/>
+          <Text text="{customers>contactTitle}"/>
+          <Label text="Phone"/>
+          <Link text="{customers>phone}" href="tel:{customers>phone}"/>
+          <Label text="Email"/>
+          <Link text="{customers>email}" href="mailto:{customers>email}"/>
+          <core:Title text="Company"/>
+          <Label text="Industry"/>
+          <Text text="{customers>industry}"/>
+          <Label text="Location"/>
+          <Text text="{customers>city}, {customers>country}"/>
+          <Label text="Customer since"/>
+          <Text text="{customers>since}"/>
+          <Label text="Credit rating"/>
+          <Text text="{customers>creditRating}"/>
+        </form:content>
+      </form:SimpleForm>
+    </Panel>
     <Toolbar>
-      <Text text="Orders in 2026: {kpi>orderCount}" class="sapUiSmallMarginEnd"/>
-      <Text text="Total value: {kpi>totalValue}" class="sapUiSmallMarginEnd"/>
+      <Title level="H4" text="Orders in 2026"/>
+      <Text text="({kpi>orderCount} orders, total {kpi>totalValue})" class="sapUiSmallMarginBegin"/>
       <ToolbarSpacer/>
       <Button text="Back" type="Ghost" icon="sap-icon://nav-back" press="onBack"/>
     </Toolbar>

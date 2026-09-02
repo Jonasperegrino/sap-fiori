@@ -13,7 +13,8 @@
       "minUI5Version": "1.108.0",
       "libs": {
         "sap.m": {},
-        "sap.ui.core": {}
+        "sap.ui.core": {},
+        "sap.ui.layout": {}
       }
     },
     "rootView": {
@@ -60,6 +61,11 @@
           "target": "orders"
         },
         {
+          "pattern": "customers",
+          "name": "customers",
+          "target": "customers"
+        },
+        {
           "pattern": "customer/{customerId}",
           "name": "customer",
           "target": "customer"
@@ -80,6 +86,10 @@
         },
         "orders": {
           "viewName": "OrderHistory",
+          "transition": "fade"
+        },
+        "customers": {
+          "viewName": "Customers",
           "transition": "fade"
         },
         "customer": {

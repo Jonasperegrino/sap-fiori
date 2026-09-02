@@ -1,0 +1,68 @@
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  controllerName="sap.fiori.poc.controller.Customers"
+  displayBlock="true">
+  <Page
+    id="customersPage"
+    title="Customers">
+    <ObjectHeader
+      id="customersHeader"
+      title="Customer Relationship Management"
+      intro="Overview of all customers — click a row for details"/>
+    <core:Fragment type="XML" fragmentName="sap.fiori.poc.view.NavBar"/>
+    <VBox class="pocTablePanel">
+      <Toolbar class="pocTableToolbar">
+        <SearchField
+          id="customersSearch"
+          width="22rem"
+          placeholder="Search customers, industry or location"
+          liveChange="onSearch"
+          search="onSearch"/>
+        <ToolbarSpacer/>
+        <Text text="Click a row to open customer details" class="pocTableHint sapUiTinyMarginBegin"/>
+      </Toolbar>
+      <Table
+        id="customersTable"
+        inset="false"
+        items="{path: 'customers>/'}">
+        <columns>
+          <Column id="colCustName">
+            <Text text="Customer"/>
+          </Column>
+          <Column id="colCustIndustry">
+            <Text text="Industry"/>
+          </Column>
+          <Column id="colCustContact">
+            <Text text="Contact"/>
+          </Column>
+          <Column id="colCustLocation">
+            <Text text="Location"/>
+          </Column>
+          <Column id="colCustEmail">
+            <Text text="Email"/>
+          </Column>
+          <Column id="colCustPhone">
+            <Text text="Phone"/>
+          </Column>
+        </columns>
+        <items>
+          <ColumnListItem type="Navigation" press="onRowPress">
+            <cells>
+              <ObjectIdentifier title="{customers>name}" text="{customers>id}"/>
+              <Text text="{customers>industry}"/>
+              <VBox>
+                <Text text="{customers>contact}"/>
+                <Text text="{customers>contactTitle}" class="sapUiTinyMarginTop"/>
+              </VBox>
+              <Text text="{customers>city}, {customers>country}"/>
+              <Link text="{customers>email}" href="mailto:{customers>email}"/>
+              <Text text="{customers>phone}"/>
+            </cells>
+          </ColumnListItem>
+        </items>
+      </Table>
+    </VBox>
+  </Page>
+</mvc:View>

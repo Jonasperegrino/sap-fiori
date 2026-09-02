@@ -84,6 +84,9 @@ sap.ui.define(
       onNavDashboard: function () {
         this.getOwnerComponent().getRouter().navTo("dashboard");
       },
+      onNavCustomers: function () {
+        this.getOwnerComponent().getRouter().navTo("customers");
+      },
       onNavCatalog: function () {
         this.getOwnerComponent().getRouter().navTo("catalog");
       },

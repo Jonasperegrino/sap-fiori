@@ -10,6 +10,7 @@
     <Title level="H3" text="Nexus Supply" wrapping="false" class="pocBrandName"/>
     <ToolbarSeparator/>
     <Button text="Dashboard" type="Transparent" icon="sap-icon://home" press="onNavDashboard"/>
+    <Button text="Customers" type="Transparent" icon="sap-icon://customer" press="onNavCustomers"/>
     <Button text="Catalog" type="Transparent" icon="sap-icon://product" press="onNavCatalog"/>
     <Button text="Order History" type="Transparent" icon="sap-icon://history" press="onNavOrders"/>
     <ToolbarSpacer/>

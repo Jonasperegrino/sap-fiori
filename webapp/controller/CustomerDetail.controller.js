@@ -107,8 +107,20 @@ sap.ui.define(
         ) {
           window.history.back();
         } else {
-          this.getOwnerComponent().getRouter().navTo("dashboard");
+          this.getOwnerComponent().getRouter().navTo("customers");
         }
+      },
+      onNavDashboard: function () {
+        this.getOwnerComponent().getRouter().navTo("dashboard");
+      },
+      onNavCustomers: function () {
+        this.getOwnerComponent().getRouter().navTo("customers");
+      },
+      onNavCatalog: function () {
+        this.getOwnerComponent().getRouter().navTo("catalog");
+      },
+      onNavOrders: function () {
+        this.getOwnerComponent().getRouter().navTo("orders");
       },
     });
   },
